@@ -4,51 +4,67 @@ import {createAppContainer} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
 // import CustomHeader from '../../../components/CustomHeader';
 
-import Introduction from '../Introduction';
-import DetailProduct from '../../Detail/DetailProduct';
-import ListProduct from '../../ListProduct/ListProduct';
+import AccountScreen from './AccountScreen';
+import LoginScreen from '../../Account/LoginScreen';
+import UserInfoScreen from '../../Account/UserInfoScreen';
+import RegisterScreen from '../../Account/RegisterScreen';
 import MessageScreen from '../../Message/MessageScreen';
 import CartScreen from '../../Cart/CartScreen';
+import OrderHistoryScreen from '../../Order/OrderHistoryScreen';
 
 const MainNavigator = createStackNavigator(
   {
-    IntroScreen: {
+    Account: {
       navigationOptions: {
         header: null,
       },
-      screen: Introduction,
+      screen: AccountScreen,
     },
-    Detail: {
+    Login: {
       navigationOptions: {
-        header: null,
+        title: 'Đăng nhập',
       },
-      screen: DetailProduct,
+      screen: LoginScreen,
     },
-    ListProduct: {
+    Register: {
       navigationOptions: {
-        header: null,
+        title: 'Tạo tài khoản',
       },
-      screen: ListProduct,
-    },
-    Cart: {
-      screen: CartScreen,
+      screen: RegisterScreen,
     },
     Message: {
       navigationOptions: {
         title: 'Chat',
-        headerStyle: {
-          backgroundColor: '#f4511e',
-        },
-        headerTintColor: '#fff',
-        headerTitleStyle: {
-          fontWeight: 'bold',
-        },
       },
       screen: MessageScreen,
     },
+    Cart: {
+      screen: CartScreen,
+    },
+    UserInfo: {
+      navigationOptions: {
+        title: 'Thông tin tài khoản',
+      },
+      screen: UserInfoScreen,
+    },
+    OrderHistory: {
+      navigationOptions: {
+        title: 'Đơn đã mua',
+      },
+      screen: OrderHistoryScreen,
+    },
   },
   {
-    initialRouteName: 'IntroScreen',
+    initialRouteName: 'Account',
+    defaultNavigationOptions: {
+      headerStyle: {
+        backgroundColor: '#f4511e',
+      },
+      headerTintColor: '#fff',
+      headerTitleStyle: {
+        fontWeight: 'bold',
+      },
+    },
   },
 );
 
@@ -58,7 +74,6 @@ export default class Main extends Component {
   render() {
     return (
       <View style={styles.container}>
-        {/* <CustomHeader navigation={this.props.navigation} /> */}
         <AppContainer />
       </View>
     );

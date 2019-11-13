@@ -3,16 +3,16 @@ import Icon from 'react-native-ionicons';
 import React from 'react';
 
 import PageHome from '../../views/Home/PageHome';
-import PageCart from '../../views/Home/PageCart';
+import PageAccount from '../../views/Home/PageAccount';
 import PageSearch from '../../views/Home/PageSearch';
 import PageContact from '../../views/Home/PageContact';
 
 const CustomTabNavigator = createBottomTabNavigator(
   {
     Home: {screen: PageHome},
-    Cart: {screen: PageCart},
     Search: {screen: PageSearch},
     Contact: {screen: PageContact},
+    Me: {screen: PageAccount},
   },
   {
     defaultNavigationOptions: ({navigation}) => ({
@@ -21,11 +21,11 @@ const CustomTabNavigator = createBottomTabNavigator(
         let iconName;
         if (routeName === 'Home') {
           iconName = 'home';
-        } else if (routeName === 'Cart') {
-          iconName = 'cart';
         } else if (routeName === 'Search') {
           iconName = 'search';
         } else if (routeName === 'Contact') {
+          iconName = 'call';
+        } else if (routeName === 'Me') {
           iconName = 'contact';
         }
 

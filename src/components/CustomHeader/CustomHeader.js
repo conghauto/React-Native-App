@@ -3,21 +3,28 @@ import React from 'react';
 import {View, Text, Image, TextInput} from 'react-native';
 
 import styles from './styles';
-import icLogo from '../../assets/imgs/logo.png';
+import icMessage from '../../assets/imgs/mess3.png';
+import Cart from '../../views/Cart/Cart';
 
 const CustomHeader = ({navigation}) => (
   <View style={[styles.container]}>
     <View style={[styles.header]}>
-      <Icon
-        name="menu"
-        size={32}
-        color="black"
-        onPress={() => navigation.openDrawer()}
+      <TextInput
+        style={[styles.search]}
+        underlineColorAndroid="transparent"
+        placeholder="Tìm kiếm"
       />
-      <Text style={[styles.titleStyle]}>Easy to buy</Text>
-      <Image style={[styles.logo]} source={icLogo} />
+      <View style={[styles.containerIcon]}>
+        <Icon
+          name="cart"
+          size={32}
+          color="white"
+          style={[styles.iconCart]}
+          onPress={() => navigation.navigate(Cart)}
+        />
+        <Image style={[styles.logo]} source={icMessage} />
+      </View>
     </View>
-    <TextInput style={[styles.search]} placeholder="Tìm kiếm" />
   </View>
 );
 

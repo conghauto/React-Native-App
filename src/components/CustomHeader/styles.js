@@ -1,10 +1,11 @@
 import {StyleSheet, Dimensions} from 'react-native';
 const {height} = Dimensions.get('window');
+const {width} = Dimensions.get('window');
 
 const styles = StyleSheet.create({
   container: {
-    borderBottomWidth: 2,
-    height: height / 8,
+    borderBottomWidth: 1,
+    height: height / 10,
     padding: 10,
     paddingTop: 5,
     backgroundColor: '#34B089',
@@ -18,20 +19,21 @@ const styles = StyleSheet.create({
   logo: {
     width: 32,
     height: 32,
+    marginLeft: 0,
   },
   search: {
-    height: height / 22,
-    backgroundColor: '#fff',
-    padding: 10,
-    paddingTop: 2,
-    paddingBottom: 2,
-    fontSize: 15,
+    height: height / 18,
+    backgroundColor: '#c38224',
+    width: (width * 2) / 3,
+    paddingLeft: 10,
+    paddingVertical: 0,
+    borderRadius: 5,
   },
-  titleStyle: {
-    color: '#000',
-    fontFamily: 'VINCHAND',
-    fontSize: 20,
-    fontWeight: '100',
+  containerIcon: {
+    flexDirection: 'row',
+    marginLeft: 20,
+    justifyContent: 'space-between',
+    flex: 4,
   },
 });
 

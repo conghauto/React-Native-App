@@ -1,8 +1,19 @@
 import React, {Component} from 'react';
-import {View} from 'react-native';
+import {View, StyleSheet} from 'react-native';
+import Main from './PageSearch/Main';
 
 export default class PageSearch extends Component {
   render() {
-    return <View style={{flex: 1, backgroundColor: 'green'}} />;
+    return (
+      <View style={styles.container}>
+        <Main />
+      </View>
+    );
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+});

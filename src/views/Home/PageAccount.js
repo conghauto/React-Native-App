@@ -1,15 +1,12 @@
 import React, {Component} from 'react';
 import {View, StyleSheet} from 'react-native';
+import Main from './PageAccount/Main';
 
-import CustomTabNavigator from '../components/CustomTabNavigator';
-
-export default class Home extends Component {
-  static router = CustomTabNavigator.router;
-
+export default class PageAccount extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <CustomTabNavigator navigation={this.props.navigation} />
+        <Main />
       </View>
     );
   }
