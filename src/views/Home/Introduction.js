@@ -24,7 +24,31 @@ import pr1 from '../../assets/imgs/img_phone.png';
 const {width, height} = Dimensions.get('window');
 
 export default class Introduction extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      types: [],
+    };
+  }
+  componentDidMount() {
+    fetch('http://192.168.1.8:80/app/')
+      .then(res => res.json())
+      .then(resJSON => {
+        console.log(resJSON);
+        const {type} = resJSON;
+        this.setState({types: type});
+      })
+      .catch(function(error) {
+        console.log(
+          'There has been a problem with your fetch operation: ' +
+            error.message,
+        );
+        // ADD THIS THROW error
+        throw error;
+      });
+  }
   render() {
+    const {types} = this.state;
     return (
       <ScrollView style={styles.container}>
         <View style={styles.header}>
@@ -63,26 +87,18 @@ export default class Introduction extends Component {
           </View>
           <View style={styles.contentNewProduct}>
             <View style={styles.titleContainer}>
-              <Text style={styles.textStyleProduct}>NEW PRODUCT</Text>
+              <Text style={styles.textStyleProduct}>LIST CATEGORY</Text>
             </View>
             <View style={styles.viewSwiper}>
               <Swiper autoplay={true} autoplayTimeout={4} showsButtons>
-                <TouchableOpacity
-                  onPress={() => this.props.navigation.navigate('ListProduct')}>
-                  <Image source={img1} style={styles.imageStyle} />
-                </TouchableOpacity>
-                <TouchableOpacity
-                  onPress={() => this.props.navigation.navigate('ListProduct')}>
-                  <Image source={img2} style={styles.imageStyle} />
-                </TouchableOpacity>
-                <TouchableOpacity
-                  onPress={() => this.props.navigation.navigate('ListProduct')}>
-                  <Image source={img3} style={styles.imageStyle} />
-                </TouchableOpacity>
-                <TouchableOpacity
-                  onPress={() => this.props.navigation.navigate('ListProduct')}>
-                  <Image source={img4} style={styles.imageStyle} />
-                </TouchableOpacity>
+                {types.map(e => (
+                  <TouchableOpacity
+                    onPress={() =>
+                      this.props.navigation.navigate('ListCategory', types)
+                    }>
+                    <Image source={img2} style={styles.imageStyle} />
+                  </TouchableOpacity>
+                ))}
               </Swiper>
             </View>
           </View>

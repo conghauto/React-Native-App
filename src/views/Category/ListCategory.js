@@ -10,8 +10,9 @@ import {
 import Icon from 'react-native-ionicons';
 import pr1 from '../../assets/imgs/img_phone.png';
 
-export default class ListProduct extends Component {
+export default class ListCategory extends Component {
   render() {
+    const {types} = this.props;
     return (
       <View styles={styles.container}>
         <ScrollView style={styles.wrapper}>

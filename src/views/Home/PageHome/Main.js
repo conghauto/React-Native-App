@@ -6,7 +6,7 @@ import {createStackNavigator} from 'react-navigation-stack';
 
 import Introduction from '../Introduction';
 import DetailProduct from '../../Detail/DetailProduct';
-import ListProduct from '../../ListProduct/ListProduct';
+import ListCategory from '../../Category/ListCategory';
 import MessageScreen from '../../Message/MessageScreen';
 import CartScreen from '../../Cart/CartScreen';
 
@@ -24,11 +24,11 @@ const MainNavigator = createStackNavigator(
       },
       screen: DetailProduct,
     },
-    ListProduct: {
+    ListCategory: {
       navigationOptions: {
         header: null,
       },
-      screen: ListProduct,
+      screen: ListCategory,
     },
     Cart: {
       screen: CartScreen,
