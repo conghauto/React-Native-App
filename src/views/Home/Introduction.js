@@ -31,7 +31,7 @@ export default class Introduction extends Component {
     };
   }
   componentDidMount() {
-    fetch('http://192.168.1.8:80/app/')
+    fetch('http://192.168.1.8:80/api/')
       .then(res => res.json())
       .then(resJSON => {
         console.log(resJSON);
